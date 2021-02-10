@@ -1,0 +1,25 @@
+Pasos para servidor bases de datos mongodb: 
+iniciar el servidor de mongodb con el comando: mongod
+
+Pasos para el backend: 
+- ingresar a la carpeta server desde la terminal 
+- instalar los modulos con el comando: npm install
+- iniciar el servidor con el comando: npm run dev  o node src/index.js
+
+Pasos para el Frontend
+- ingresar a la carpeta frontend desde la terminal 
+- instalar los modulos con el comando: npm install
+- iniciar el servidor de angular con el comando: ng serve -o
+
+
+Uso de la plataforma
+- se puede registrar una nueva factura
+- para enviar los correos electronicos pulsado el icono de flecha
+- se puede eliminar facturas en el icono de la basura
+
+Verificar los correos
+- se utilizo una herramienta llama https://ethereal.email/
+- Donde se crea un usuario y contraseña para poder enviar los correos
+- tendra que ingresar a la pagina web con el siguiente usuario y contraseña, dirigirse a la bandeja de entra y revisar los correos respectivos
+ user: felipa.ferry19@ethereal.email
+ pass: 	6jjkUamrNZszsS2Asp
