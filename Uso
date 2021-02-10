@@ -14,7 +14,7 @@ Pasos para el Frontend
 
 Uso de la plataforma
 - se puede registrar una nueva factura
-- para enviar los correos electronicos pulsado el icono de flecha
+- para enviar los correos electronicos pulsado el icono de flecha, cuando el estado esta desactivado el boton para enviar los correos se desaparece.
 - se puede eliminar facturas en el icono de la basura
 
 Verificar los correos
