@@ -1,0 +1,179 @@
+<div class="container mover">
+  <div class="card">
+    <div class="card-body">
+      <h4 style="text-align: center; margin-bottom: 10px">
+        Formulario factura
+      </h4>
+      <form #invoiceForm="ngForm" (ngSubmit)="addInvoice(invoiceForm)">
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <input
+                type="number"
+                name="codigoFactura"
+                class="form-control"
+                placeholder="Código de factura"
+                [(ngModel)]="invoiceService.selectedInvoice.codigoFactura"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="number"
+                name="totalfactura"
+                class="form-control"
+                placeholder="Ingrese el total factura"
+                [(ngModel)]="invoiceService.selectedInvoice.totalfactura"
+              />
+            </div>
+            <label for="">Seleccione el estado</label>
+            <select
+              class="form-select"
+              aria-label="Default select example"
+              [(ngModel)]="invoiceService.selectedInvoice.estado"
+              name="estado"
+            >
+              <option value="Primer Recordatorio">Primer Recordatorio</option>
+              <option value="Segundo Recordatorio">Segundo Recordatorio</option>
+              <option value="Desactivado">Desactivado</option>
+            </select>
+          </div>
+
+          <div class="col">
+            <div class="form-group">
+              <input
+                type="text"
+                name="cliente"
+                class="form-control"
+                placeholder="Nombre del cliente"
+                [(ngModel)]="invoiceService.selectedInvoice.cliente"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="number"
+                name="subTotal"
+                class="form-control"
+                placeholder="Ingrese el subtotal"
+                [(ngModel)]="invoiceService.selectedInvoice.subTotal"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="date"
+                name="fechaCreacion"
+                class="form-control"
+                placeholder="Ingrese fecha creación"
+                [(ngModel)]="invoiceService.selectedInvoice.fechaCreacion"
+              />
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-group">
+              <input
+                type="text"
+                name="ciudad"
+                class="form-control"
+                placeholder="Ingrese Ciudad"
+                [(ngModel)]="invoiceService.selectedInvoice.ciudad"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="number"
+                name="iva"
+                class="form-control"
+                placeholder="Ingrese IVA"
+                [(ngModel)]="invoiceService.selectedInvoice.iva"
+              />
+            </div>
+
+            <div class="form-group">
+              <input
+                type="email"
+                name="email"
+                class="form-control"
+                placeholder="Ingrese email"
+                [(ngModel)]="invoiceService.selectedInvoice.email"
+              />
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="form-group">
+              <input
+                type="text"
+                name="nit"
+                class="form-control"
+                placeholder="Ingrese NIT"
+                [(ngModel)]="invoiceService.selectedInvoice.nit"
+              />
+            </div>
+            <div class="form-group">
+              <input
+                type="number"
+                name="retencion"
+                class="form-control"
+                placeholder="Ingrese retencion"
+                [(ngModel)]="invoiceService.selectedInvoice.retencion"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="container" style="text-align: center">
+          <button class="btn btn-primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<table class="table table-striped mover table-bordered" id="div1">
+  <thead class="table-primary">
+    <tr>
+      <th>Código Factura</th>
+      <th>Cliente</th>
+      <th>Ciudad</th>
+      <th>Total Factura</th>
+      <th>SubTotal</th>
+      <th>IVA</th>
+      <th>Fecha Creación</th>
+      <th>Estado</th>
+      <th>Pagada</th>
+      <th>Fecha Pago</th>
+      <th>Email</th>
+      <th>Operaciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let invoice of invoiceService.invoices">
+      <td>{{ invoice.codigoFactura }}</td>
+      <td>{{ invoice.cliente }}</td>
+      <td>{{ invoice.ciudad }}</td>
+      <td>{{ invoice.totalfactura }}</td>
+      <td>{{ invoice.subTotal }}</td>
+      <td>{{ invoice.iva }}</td>
+      <td>{{ invoice.fechaCreacion }}</td>
+      <td>{{ invoice.estado }}</td>
+      <td>{{ invoice.pagada }}</td>
+      <td>{{ invoice.fechaPago }}</td>
+      <td>{{ invoice.email }}</td>
+      <td>
+        <button
+          class="btn btn-primary btn-sm"
+          style="margin-right: 5px"
+          (click)="sendState(invoice._id)"  *ngIf="invoice.estado != 'Desactivado'"
+        >
+          <i class="material-icons">send</i>
+        </button>
+        <button
+          class="btn btn-danger btn-sm"
+          (click)="deleteInvoice(invoice._id)"
+        >
+          <i class="material-icons">delete</i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
