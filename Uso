@@ -9,7 +9,7 @@ Pasos para el backend:
 Pasos para el Frontend
 - ingresar a la carpeta frontend desde la terminal 
 - instalar los modulos con el comando: npm install
-- iniciar el servidor de angular con el comando: ng serve -o
+- iniciar el servidor de angular con el comando: ng serve -o || ng serve
 
 
 Uso de la plataforma
